@@ -48,21 +48,47 @@
                             
                             <form role="form">
                                 <div class="form-group">
-                                    <label for="desc">Description</label>
-                                    <select class="form-control" id="select" [(ngModel)]="curr_text" name"djfskl">
-                                        <option *ngFor="let d of descriptions">{{d}}</option>
+                                    <label for="text_selector">Selektor</label>
+                                    <select 
+                                        class="form-control"
+                                        id="select"
+                                        name="text_selector"
+                                        [(ngModel)]="curr_selector">
+                                            <option *ngFor="let s of selectors">{{s}}</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="cost">Kosten</label>
-                                    <input
-                                        type="text"
+
+                                <!-- TODO: HORRIBLE WITH VALUE COMPARISON!!! CHANGE!!! -->
+                                <div class="form-group" *ngIf="curr_selector==='Der/Das'">
+                                    <label for="color">Farbe</label>
+                                    <select
                                         class="form-control"
-                                        id="focusedInput"
-                                        name="desc_input"
-                                        [(ngModel)]="curr_desc">
+                                        id="select"
+                                        name="color_select"
+                                        [(ngModel)]="curr_color">
+                                            <option *ngFor="let c of colors">{{c}}</option>
+                                    </select>
+                                    <label for="value_select">Karte</label>
+                                    <select
+                                        class="form-control"
+                                        id="select"
+                                        name="card_select"
+                                        [(ngModel)]="curr_card">
+                                            <option *ngFor="let c of cards">{{c}}</option>
+                                    </select>
+                                </div>
+
+                                <!-- Preis -->
+                                <div class="form-group">
+                                    <label class="control-label" for="focusedInput">Kosten</label>
+                                    <input class="form-control" id="focusedInput" type="text" name="name" [(ngModel)]="curr_cost">
                                 </div>
                             </form>
+
+                            <div class="form-group">
+                                {{curr_selector}} {{curr_color}} {{curr_card}} kostet {{curr_cost}}
+                                <span *ngIf="curr_cost!==''">CHF</span>
+                            </div>
 
                         </div>
                         <div class="modal-footer">
@@ -71,7 +97,7 @@
                                 class="btn btn-default"
                                 data-dismiss="modal"
                                 (click)="done()">
-                                    Close
+                                    Done
                             </button>
                         </div>
                     </div>
