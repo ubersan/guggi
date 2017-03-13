@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { User }         from './user';
+import { UserService }  from './user.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'guggi-start',
-    templateUrl: './guggi-start.component.html'
+    selector: 'new-game',
+    templateUrl: './new-game.component.html'
 })
-export class GuggiStartComponent {
+export class NewGameComponent implements OnInit {
+    ngOnInit(): void {
+        this.getUsers();
+    }
+
     title = 'Starting page';
 
-    players = ['Lena', 'Simi', 'Nüi', 'Fäde', 'Mäde'];
-    descriptions = ['Jede Rose', 'Schilte König', 'Alle 9i'];
+    players: User[] = [];
 
     curr_desc:string = '';
     curr_text:string = '';
@@ -26,6 +32,14 @@ export class GuggiStartComponent {
     curr_cost = '';
 
     temp_descs: string[] = [];
+
+    constructor(
+        private userService: UserService
+    ) { }
+
+    getUsers(): void {
+        this.userService.getUsers().then(users => this.players = users);
+    }
 
     done(): void {
         this.temp_descs.push(this.curr_selector + ' ' + this.curr_color + ' ' + this.curr_card + ' kostet ' + this.curr_cost + ' CHF');

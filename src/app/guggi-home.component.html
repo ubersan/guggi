@@ -1,0 +1,73 @@
+<h1>Home title</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="bs-component panel-body text-center">
+            <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                data-toggle="modal"
+                data-target="#loginModal">
+                    Login & Sign-Up
+            </button>
+            <a
+                href="games"
+                type="button"
+                class="btn btn-primary btn-lg">
+                Browse Games
+            </a>
+            <a href="new-game" type="button" class="btn btn-primary btn-lg">New Game</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="bs-component">
+            <div class="modal fade" id="loginModal" role="dialog">
+                <div class="modal-dialog">
+                
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:35px 50px; background-color: #5cb85c; color:white !important;
+                        text-align: center; font-size: 30px;">
+                        <button type="button" class="close" data-dismiss="modal" style="font-size: 30px; color: white !important;">&times;</button>
+                        <h4 style="font-size: 30px;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                    </div>
+                   
+                    <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"
+                                (click)="this.is_registering = !this.is_registering;">
+                                Register
+                            </button>
+                        </div>
+                        <div class="form-group" *ngIf="is_registering===true">
+                            <label for="fullname"><span class="glyphicon glyphicon-pencil"></span> Name</label>
+                            <input type="text" class="form-control" id="fullname" placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                            <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                            <input type="password" class="form-control" id="psw" placeholder="Enter password">
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                    </form>
+                    </div>
+                   
+                    <div class="modal-footer" style="background-color: #f9f9f9;">
+                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
