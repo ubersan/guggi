@@ -10,13 +10,13 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent }         from './app.component';
-import { GuggiGameComponent }   from './guggi-game.component';
 import { GuggiNavComponent }    from './guggi-nav.component';
 import { NewGameComponent }     from './new-game.component';
 import { GuggiHomeComponent }   from './guggi-home.component';
 import { UserService }          from './user.service';
 import { GamesListComponent}    from './games-list.component';
 import { GameService }          from './game.service';
+import { GameComponent }        from './game.component';
 
 @NgModule({
   imports:      [
@@ -28,11 +28,11 @@ import { GameService }          from './game.service';
     ],
   declarations: [
     AppComponent,
-    GuggiGameComponent,
     GuggiNavComponent,
     NewGameComponent,
     GuggiHomeComponent,
-    GamesListComponent
+    GamesListComponent,
+    GameComponent
     ],
   providers:    [
     UserService,

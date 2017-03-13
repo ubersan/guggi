@@ -1,3 +1,15 @@
-<h1>test</h1>
-<h1>{{games.length}}</h1>
-<h1>{{sname}}</h1>
+<h1>List of stored Games</h1>
+<table class="table table-striped table-hover">
+    <thead>
+        <th>Name</th>
+        <th>Players</th>
+        <th>#Rounds</th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let g of games" (click)="onSelect(g.id)">
+            <td>{{g.name}}</td>
+            <td>{{g.players.length}}</td>
+            <td>{{g.rounds.length}}</td>
+        </tr>
+    </tbody>

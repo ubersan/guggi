@@ -11,6 +11,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
         let games = [
             {
+                id: 0,
                 name: "a craazy game!",
                 players: users,
                 rounds:

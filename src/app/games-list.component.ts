@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }    from '@angular/core';
+import { Router }               from '@angular/router';
 
 import { Game }         from './game';
 import { GameService }  from './game.service';
@@ -15,17 +16,17 @@ export class GamesListComponent implements OnInit {
 
     getGames(): void {
         this.gameService.getGames()
-            .then(games => 
-            {
-                this.games = games;
-                this.sname = this.games[0].name
-            });
+            .then(games => this.games = games);
+    }
+
+    onSelect(id: number): void {
+        this.router.navigate(['/detail', id]);
     }
 
     constructor(
+        private router: Router,
         private gameService: GameService
     ) { }
 
     games: Game[] = [];
-    sname: string = '';
 }

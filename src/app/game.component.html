@@ -1,1 +1,17 @@
-<h1>game detail</h1>
+<div *ngIf="game">
+    <div class="list-group">
+        <div>
+            <label>Name: </label>
+            <div>{{game.name}}</div>
+        </div>
+        <div>
+            <label>Players:</label>
+            <div *ngFor="let p of game.players">{{p.name}}</div>
+        </div>
+        <div>
+            <label>Rounds:</label>
+            <div *ngFor="let r of game.rounds">{{r.info}}</div>
+        </div>
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>

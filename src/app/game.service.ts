@@ -14,10 +14,15 @@ export class GameService {
 
     constructor(private http: Http) { }
 
+    getGame(id: number): Promise<Game> {
+        return this.getGames()
+             .then(games => games.find(game => game.id === id));
+    }
+
     getGames(): Promise<Game[]> {
         return this.http.get(this.gameUrl)
             .toPromise()
-            .then(ans => ans.json().data as Game[])
+            .then(res => res.json().data as Game[])
             .catch(this.handleError);
     }
 
