@@ -16,6 +16,7 @@ export class NewGameComponent implements OnInit {
     title = 'Starting page';
 
     players: User[] = [];
+    new_player = '';
 
     curr_desc:string = '';
     curr_text:string = '';
